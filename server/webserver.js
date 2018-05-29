@@ -13,6 +13,16 @@ app.post('/users', (req, res) => {
   });
 });
 
+app.get('/users', (req, res) => {
+  User.find().then((users)=>{
+    res.send({users});
+  }, (e)=>{
+    console.log(e);
+    res.send(e);
+
+  });
+
+});
 
 app.listen(9999, () => {
   console.log('server is listening on port 9999');
