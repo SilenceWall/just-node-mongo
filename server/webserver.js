@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const {mongoose} = require('./dbserver');
 const {User} = require('./users-model');
 const {ObjectID} = require('mongodb');
+const port = process.env.PORT || 9999;
 var app = express();
 app.use(bodyParser.json());
 app.post('/users', (req, res) => {
@@ -41,6 +42,6 @@ app.get('/users/:id', (req,res)=>{
   }
 });
 
-app.listen(9999, () => {
-  console.log('server is listening on port 9999');
+app.listen(port, () => {
+  console.log(`server is listening on port ${port}`);
 });
